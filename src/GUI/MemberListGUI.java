@@ -10,8 +10,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.table.TableColumnModel;
-import javax.swing.table.TableModel;
 
 public class MemberListGUI implements ActionListener {
 
@@ -27,7 +25,7 @@ public class MemberListGUI implements ActionListener {
 
 	public MemberListGUI() {
 
-		frame.setSize(new Dimension(800, 800));
+		frame.setSize(new Dimension(400, 400));
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(new BorderLayout());
@@ -45,7 +43,7 @@ public class MemberListGUI implements ActionListener {
 			frame.dispose();
 		}
 
-		if (e.getSource() == btn1) {
+		else if (e.getSource() == btn1) {
 			int selectedRowIndex = table.getSelectedRow();
 			int selectedColumnIndex = table.getSelectedColumn();
 			Object selectedObject = (Object) table.getModel().getValueAt(selectedRowIndex, selectedColumnIndex);
