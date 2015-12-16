@@ -17,8 +17,8 @@ public class MemberListGUI implements ActionListener {
 	JFrame frame = new JFrame("Medlems liste");
 	JPanel panel = new JPanel();
 	JPanel panel1 = new JPanel();
-	JButton btnTilfoej = new JButton("Tilføj");
-	JButton btn2 = new JButton("log ud");
+	JButton btnKontingent = new JButton("Opret ny kontingent");
+	JButton btnLogUd = new JButton("log ud");
 	
 	private int selectedRow = 0;
 	
@@ -34,9 +34,14 @@ public class MemberListGUI implements ActionListener {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(new BorderLayout());
 		frame.add(panel, BorderLayout.SOUTH);
-		frame.add(btnTilfoej, BorderLayout.EAST);
-		btnTilfoej.addActionListener(this);
-		panel.add(btn2);
+		frame.add(panel1,BorderLayout.EAST);
+		frame.add(btnKontingent, BorderLayout.WEST);
+		
+		btnKontingent.addActionListener(this);
+		btnLogUd.addActionListener(this);
+		
+		panel1.add(btnKontingent);
+		panel.add(btnLogUd);
 		jTable();
 
 		frame.setVisible(true);
@@ -44,7 +49,7 @@ public class MemberListGUI implements ActionListener {
 
 	public void actionPerformed(ActionEvent e) {
 
-		if (e.getSource() == btnTilfoej){
+		if (e.getSource() == btnKontingent){
 			String name = null;
 			selectedRow = table.getSelectedRow();
 			try {
@@ -57,7 +62,7 @@ public class MemberListGUI implements ActionListener {
 				System.out.println(name);
 			}
 		}
-		if (e.getSource() == btn2) {
+		if (e.getSource() == btnLogUd) {
 			frame.dispose();
 		}
 //		else if (e.getSource() == btnTilfoej) {
